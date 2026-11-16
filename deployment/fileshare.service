@@ -1,0 +1,15 @@
+[Unit]
+Description=CSC463 Python File Sharing Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=fileshare
+WorkingDirectory=/opt/fileshare/app
+ExecStart=/usr/bin/python3 -B /opt/fileshare/app/Server.py
+Restart=no
+Environment=PYTHONDONTWRITEBYTECODE=1
+
+[Install]
+WantedBy=multi-user.target
